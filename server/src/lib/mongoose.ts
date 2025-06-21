@@ -1,9 +1,11 @@
 // db.js
 import mongoose from "mongoose";
 
+const url: string = process.env.MONGO_URI as string;
+
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/learning-app");
+    await mongoose.connect(url);
     console.log("MongoDB Connected");
   } catch (err) {
     if (err instanceof Error) {
