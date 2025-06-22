@@ -17,15 +17,7 @@ app.use(
 app.use("/api/v1/auth", userRouter);
 app.use("/api/v1/video", videoRouter);
 
-(async () => {
-  try {
-    app.listen(config.PORT, () => {
-      console.log(`Server is running on port ${config.PORT}`);
-    });
-    connectDB();
-  } catch (err) {
-    if (err instanceof Error) {
-      console.error(err.message);
-    }
-  }
-})();
+connectDB();
+app.listen(config.PORT, () => {
+  console.log(`Server is running on port ${config.PORT}`);
+});
